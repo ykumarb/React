@@ -182,12 +182,14 @@ import User from './components/Users';
 function App() {
   return (
     <>
-    <User 
+    <User
       name="Yupindra"
       img="https://avatars.githubusercontent.com/u/170880041?s=96&v=4"
       age={18}
       hobbies= {["Cricket", " ", "Football"]}
-    />
+    >
+      <p>This is the children of the User component</p>
+    </User>
     </>
   )
 }
