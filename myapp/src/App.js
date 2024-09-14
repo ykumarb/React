@@ -177,20 +177,81 @@ props are read-only.
 */
 
 
-import User from './components/Users';
+// import User from './components/Users';
+
+// function App() {
+//   return (
+//     <>
+//     <User
+//       name="Yupindra"
+//       img="https://avatars.githubusercontent.com/u/170880041?s=96&v=4"
+//       age={18}
+//       hobbies= {["Cricket", " ", "Football"]}
+//     >
+//       <p>This is the children of the User component</p>
+//     </User>
+//     </>
+//   )
+// }
+
+// --------------------------conditional rendering-----------------------------------
+
+/*
+Conditional rendering:
+Conditional rendering in React works the same way 
+conditions work in JavaScript.
+Use JavaScript operators like if or the conditional 
+operator to create elements representing the current state,
+and let React update the UI to match them.
+*/
+
+// const ValidPassword = () => <h1>Valid Password</h1>;
+// const InvalidPassword = () => <h1>Invalid Password</h1>;
+
+// /* Returning the component based on the condition */
+// const Password = ({validPassword}) => {
+//   if(validPassword === "12345678") {
+//     return <ValidPassword/> /* Return valid password component */
+//   }
+//   return validPassword === "12345678" ? <ValidPassword/> : <InvalidPassword/>
+//   return <InvalidPassword/> /* Return invalid password component */
+// }
+
+// /* Main App component */
+// function App() {
+//   return(
+//     <>
+//       <Password
+//       validPassword="12345678"
+//       />
+//     </>
+//   )
+// }
+
+const Cart = () => {
+  const items = ["Apple", "Banana", "Orange", "Grapes"];
+
+  return (
+    <>
+    <h1>Cart 🛒</h1>
+    {items.length > 0 && <h3>You have {items.length} items in your cart</h3>}
+    <ul>
+      <h4>👇 Products</h4>
+      {items.map(item => (
+        <li key={Math.random() * 10}>
+          {item}
+        </li>
+      ))}
+    </ul>
+    </>
+  );
+};
 
 function App() {
   return (
     <>
-    <User
-      name="Yupindra"
-      img="https://avatars.githubusercontent.com/u/170880041?s=96&v=4"
-      age={18}
-      hobbies= {["Cricket", " ", "Football"]}
-    >
-      <p>This is the children of the User component</p>
-    </User>
+    <Cart/>
     </>
-  )
-}
+  );
+};
 export default App;
