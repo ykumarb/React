@@ -134,33 +134,60 @@ method.
 // }
 
 /* Example 2 */
+// function App() {
+//   const userInfo = [
+//   {
+//     name: "Dhoni",
+//     age: 25,
+//     location: "Bangalore"
+//   },
+//   {
+//     name: "Bravo",
+//     age: 45,
+//     location: "Bangalore"
+//   },
+//   {
+//     name: "Alex",
+//     age: 15,
+//     location: "Bangalore"
+//   },
+// ]
+//   return (
+//     <>
+//     {userInfo.map(user => (
+//       <ul key={Math.random() * 10}>
+//         <li>Name: {user.name}</li>
+//         <li>Age: {user.age}</li>
+//         <li>Location: {user.location}</li>
+//       </ul>
+//     ))}
+//     </>
+//   )
+// }
+
+// -------------------------Props/Properties-----------------------------------
+/*
+Props:
+Props are arguments pssed into React components.
+props are passed to components via HTML attributes.
+
+Every parent component can pass props to its child components by giving them a  prop
+you can pass any type of data through a prop — objects, arrays, functions from parent to child.
+props are read-only.
+*/
+
+
+import User from './components/Users';
+
 function App() {
-  const userInfo = [
-  {
-    name: "Dhoni",
-    age: 25,
-    location: "Bangalore"
-  },
-  {
-    name: "Bravo",
-    age: 45,
-    location: "Bangalore"
-  },
-  {
-    name: "Alex",
-    age: 15,
-    location: "Bangalore"
-  },
-]
   return (
     <>
-    {userInfo.map(user => (
-      <ul key={Math.random() * 10}>
-        <li>Name: {user.name}</li>
-        <li>Age: {user.age}</li>
-        <li>Location: {user.location}</li>
-      </ul>
-    ))}
+    <User 
+      name="Yupindra"
+      img="https://avatars.githubusercontent.com/u/170880041?s=96&v=4"
+      age={18}
+      hobbies= {["Cricket", " ", "Football"]}
+    />
     </>
   )
 }
