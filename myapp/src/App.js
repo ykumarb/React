@@ -87,25 +87,81 @@ Some pointers:
 
 // -------------------------Expressions in JSX-----------------------------------
 
-const myName = "Yupindra";
-const multiply = (a, b) => a * b;
-const specialClass = "simple-class";
+// const myName = "Yupindra";
+// const multiply = (a, b) => a * b;
+// const specialClass = "simple-class";
 
+// function App() {
+//   return (
+//     <>
+//     {/* Rendering a variable value */}
+//     <h1> Hello {myName} </h1>
+//     {/* Rendering expressions */}
+//     <p>2+2 = {2+2}</p>
+//     {/* Rendering arrays */}
+//     <p>Array: {["Yupindra", "Kumar", "Balaji"]}</p>
+//     {/* Rendering Function values */}
+//     <p>2*2= {multiply(2, 2)}</p>
+//     {/* Rendering Classes */}
+//     <p className={specialClass}>This is a special class</p>
+//     </>
+//   )
+// }
+
+//-------------------------Lists-----------------------------------
+
+/*
+Lists:
+In react, you will render lists with some type of loop.
+The Javascript map() array method is generally the preferred
+method.
+*/
+
+/* Example 1 */
+// function App() {
+//   const numbers = [1, 2, 3, 4, 5];
+
+//   return (
+//     <>
+//     {/* Handle key prop through key in ul tag to avoid console error in browser*/}
+//     {numbers.map((number) => (
+//       <ul key={Math.random()}>
+//         <li>{number}</li>
+//       </ul>
+//     ))}
+//     </>
+//   );
+// }
+
+/* Example 2 */
 function App() {
+  const userInfo = [
+  {
+    name: "Dhoni",
+    age: 25,
+    location: "Bangalore"
+  },
+  {
+    name: "Bravo",
+    age: 45,
+    location: "Bangalore"
+  },
+  {
+    name: "Alex",
+    age: 15,
+    location: "Bangalore"
+  },
+]
   return (
     <>
-    {/* Rendering a variable value */}
-    <h1> Hello {myName} </h1>
-    {/* Rendering expressions */}
-    <p>2+2 = {2+2}</p>
-    {/* Rendering arrays */}
-    <p>Array: {["Yupindra", "Kumar", "Balaji"]}</p>
-    {/* Rendering Function values */}
-    <p>2*2= {multiply(2, 2)}</p>
-    {/* Rendering Classes */}
-    <p className={specialClass}>This is a special class</p>
+    {userInfo.map(user => (
+      <ul key={Math.random() * 10}>
+        <li>Name: {user.name}</li>
+        <li>Age: {user.age}</li>
+        <li>Location: {user.location}</li>
+      </ul>
+    ))}
     </>
   )
 }
-
 export default App;
