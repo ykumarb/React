@@ -1,10 +1,10 @@
-const User = (props) => {
+const User = ({name, img, age, hobbies}) => {
     return (
       <section>
-        <img src={props.img} alt={props.name} />
-        <h1> Name: {props.name}</h1>
-        <h3> Age: {props.age}</h3>
-        <h3> Hobbies: {props.hobbies}</h3>
+        <img src={img} alt={name} />
+        <h1> Name: {name}</h1>
+        <h3> Age: {age}</h3>
+        <h3> Hobbies: {hobbies}</h3>
       </section>
     )
   }
