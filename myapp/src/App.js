@@ -58,14 +58,32 @@ Some pointers:
 // }
 
 // -------------------------Render Multiple components-----------------------------------
+// import Add from './components/Add';
+// import Greetings from './components/Greetings'; 
+// function App() {
+//   return (
+//     <section>
+//       <Add/>
+//       <Greetings/>;
+//     </section>
+//   ) 
+// }
+
+// -------------------------Fragements-----------------------------------
+
 import Add from './components/Add';
-import Greetings from './components/Greetings'; 
+import Greetings from './components/Greetings';
+import { Fragment } from 'react';
 function App() {
+
   return (
-    <section>
+    <Fragment>
       <Add/>
       <Greetings/>;
-    </section>
-  ) 
+    </Fragment>
+  )
+
 }
+
+
 export default App;
