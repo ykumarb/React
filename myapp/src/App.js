@@ -228,30 +228,72 @@ and let React update the UI to match them.
 //   )
 // }
 
-const Cart = () => {
-  const items = ["Apple", "Banana", "Orange", "Grapes"];
+// const Cart = () => {
+//   const items = ["Apple", "Banana", "Orange", "Grapes"];
 
-  return (
-    <>
-    <h1>Cart 🛒</h1>
-    {items.length > 0 && <h3>You have {items.length} items in your cart</h3>}
-    <ul>
-      <h4>👇 Products</h4>
-      {items.map(item => (
-        <li key={Math.random() * 10}>
-          {item}
-        </li>
-      ))}
-    </ul>
-    </>
-  );
-};
+//   return (
+//     <>
+//     <h1>Cart 🛒</h1>
+//     {items.length > 0 && <h3>You have {items.length} items in your cart</h3>}
+//     <ul>
+//       <h4>👇 Products</h4>
+//       {items.map(item => (
+//         <li key={Math.random() * 10}>
+//           {item}
+//         </li>
+//       ))}
+//     </ul>
+//     </>
+//   );
+// };
 
+// function App() {
+//   return (
+//     <>
+//     <Cart/>
+//     </>
+//   );
+// };
+
+//-------------------------Style Component-----------------------------------
+
+
+// function App() {
+
+//   const differentStyles = {
+//     color: "white",
+//     backgroundColor: "crimson",
+//     padding: "10px",
+//     borderRadius: "10px"
+//   }
+//   return(
+//     <>
+//       {/* Inline styling */}
+//       <h1 style={{color: "White", backgroundColor: "Crimson"}}>
+//         This is Yupindra Kumar Balaji
+//       </h1>
+//       {/* External styling */}
+//       <h1 style={{color: differentStyles.color, backgroundColor: differentStyles.backgroundColor, padding: differentStyles.padding, borderRadius: differentStyles.borderRadius}}>
+//         This is Yupindra Kumar Balaji
+//       </h1>
+//       {/* External styling */}
+//       <h1 style={{...differentStyles}}>
+//         This is Yupindra Kumar Balaji
+//       </h1>
+//       {/* External styling */}
+//       <h1 style={differentStyles}>
+//         This is Yupindra Kumar Balaji
+//       </h1>
+//     </>
+//   )
+// }
+
+import "./index.css";
 function App() {
   return (
     <>
-    <Cart/>
+      <h1>Hello World</h1>
     </>
   );
-};
+}
 export default App;
