@@ -18,11 +18,40 @@ Types:
 // }
 
 /* Class based components */
-class App extends React.Component {
-  // To show content on the screen.
-  render() {
-    return <h1>Hello Yupindra</h1>
-  }
-}
+// class App extends React.Component {
+//   // To show content on the screen.
+//   render() {
+//     return <h1>Hello Yupindra</h1>
+//   }
+// }
 
+/* jsx */
+
+/*
+Notes:
+1. React can render HTML content. Writing HTML will
+be taken care by React in converting to JS code using babel.
+
+Using https://babeljs.io/ you can see the JS code for equivalent
+HTML content. Which works same as HTML.
+
+Some pointers:
+1. Multiple tags should be wrapped in a single parent tag.
+2. Have proper open/close tags. Closing tag is mandatory.
+3. For HTML tag if you want to add a class, use className.
+4. For HTML tag if you want to add for, use htmlFor.
+*/
+
+function App() {
+  return (
+    <div>
+        <section>
+          <h1>This is the Section</h1>
+        </section>
+        <article>
+          <h2>This is the article</h2>
+        </article>
+    </div>  
+  )
+}
 export default App;
