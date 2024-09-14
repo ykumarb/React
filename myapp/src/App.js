@@ -71,19 +71,41 @@ Some pointers:
 
 // -------------------------Fragements-----------------------------------
 
-import Add from './components/Add';
-import Greetings from './components/Greetings';
-import { Fragment } from 'react';
+// import Add from './components/Add';
+// import Greetings from './components/Greetings';
+// import { Fragment } from 'react';
+// function App() {
+
+//   return (
+//     <Fragment>
+//       <Add/>
+//       <Greetings/>;
+//     </Fragment>
+//   )
+
+// }
+
+// -------------------------Expressions in JSX-----------------------------------
+
+const myName = "Yupindra";
+const multiply = (a, b) => a * b;
+const specialClass = "simple-class";
+
 function App() {
-
   return (
-    <Fragment>
-      <Add/>
-      <Greetings/>;
-    </Fragment>
+    <>
+    {/* Rendering a variable value */}
+    <h1> Hello {myName} </h1>
+    {/* Rendering expressions */}
+    <p>2+2 = {2+2}</p>
+    {/* Rendering arrays */}
+    <p>Array: {["Yupindra", "Kumar", "Balaji"]}</p>
+    {/* Rendering Function values */}
+    <p>2*2= {multiply(2, 2)}</p>
+    {/* Rendering Classes */}
+    <p className={specialClass}>This is a special class</p>
+    </>
   )
-
 }
-
 
 export default App;
