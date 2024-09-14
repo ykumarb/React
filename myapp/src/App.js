@@ -1,6 +1,7 @@
 import React from 'react';
 // import {Component} from 'react';
 
+// -------------------------Components-----------------------------------
 /*
 COMPONENTS:
 Components are independent and reusable bits of code.
@@ -25,6 +26,7 @@ Types:
 //   }
 // }
 
+// -------------------------JSX-----------------------------------
 /* jsx */
 
 /*
@@ -42,16 +44,28 @@ Some pointers:
 4. For HTML tag if you want to add for, use htmlFor.
 */
 
+// function App() {
+//   return (
+//     <div>
+//         <section>
+//           <h1>This is the Section</h1>
+//         </section>
+//         <article>
+//           <h2>This is the article</h2>
+//         </article>
+//     </div>  
+//   )
+// }
+
+// -------------------------Render Multiple components-----------------------------------
+import Add from './components/Add';
+import Greetings from './components/Greetings'; 
 function App() {
   return (
-    <div>
-        <section>
-          <h1>This is the Section</h1>
-        </section>
-        <article>
-          <h2>This is the article</h2>
-        </article>
-    </div>  
-  )
+    <section>
+      <Add/>
+      <Greetings/>;
+    </section>
+  ) 
 }
 export default App;
