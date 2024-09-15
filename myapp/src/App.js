@@ -361,14 +361,28 @@ and let React update the UI to match them.
 
 // -------------------------Tailwind CSS-----------------------------------
 
+// function App() {
+//   return (
+//     <>
+//       <h1 className="text-3xl font-bold underline">
+//         Hello world!
+//       </h1>
+//     </>
+//   );
+// }
+
+// -------------------------React Icons-----------------------------------
+
+import { BsFillCartCheckFill } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+
 function App() {
-  return (
+  return(
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+     <BsFillCartCheckFill />
+     <FaGithub />
     </>
   );
-}
+};
 
 export default App;
