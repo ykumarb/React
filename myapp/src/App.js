@@ -785,19 +785,37 @@ properties of a DOM element It is useful when
 you need to access the value of an element or the
 current dimensions of an element.
 */
-import { useRef } from 'react';
-function App() {
-  const inputElement = useRef(null);
+// import { useRef } from 'react';
+// function App() {
+//   const inputElement = useRef(null);
 
-  const focusInput = () => {
-    inputElement.current.focus();
-    inputElement.current.value = "Yupin";
-  }
-  return(
+//   const focusInput = () => {
+//     inputElement.current.focus();
+//     inputElement.current.value = "Yupin";
+//   }
+//   return(
+//     <>
+//       <h1>useRef Hook</h1>
+//       <input type="text" ref={inputElement} />
+//       <button onClick={() => focusInput()}>Focus & write Yupin</button>
+//     </>
+//   )
+// }
+
+// export default App;
+
+//-------------------------Custom Hook--------------------------------------
+import useFetch from './useFetch';
+function App() {
+
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+
+  return (
     <>
-      <h1>useRef Hook</h1>
-      <input type="text" ref={inputElement} />
-      <button onClick={() => focusInput()}>Focus & write Yupin</button>
+      <h1>Custom Hook</h1>
+      {data && data.map(item => {
+       return <p key={item.id}>{item.title}</p>;
+      })}
     </>
   )
 }
