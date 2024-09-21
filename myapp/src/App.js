@@ -373,16 +373,191 @@ and let React update the UI to match them.
 
 // -------------------------React Icons-----------------------------------
 
-import { BsFillCartCheckFill } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
+// import { BsFillCartCheckFill } from "react-icons/bs";
+// import { FaGithub } from "react-icons/fa";
 
-function App() {
-  return(
+// function App() {
+//   return(
+//     <>
+//      <BsFillCartCheckFill />
+//      <FaGithub />
+//     </>
+//   );
+// };
+
+// -------------------------Events-----------------------------------
+/* Button event listener */
+// const Button = () => {
+
+//   const handleClick = (a,b) => {
+//       console.log(a+b);
+//       alert("Clicked!!");
+//   };
+
+//   return <button onClick={() => handleClick(2,2)}>Click Me!</button>;
+// };
+
+// /* Copy event listener */
+// const Copy = () => {
+
+//   const copyHandler = () => {
+//     alert("Don't steal!!");
+//     console.log("Don't steal!!");
+//   };
+
+//   return (
+//     <>
+//       <p onCopy={copyHandler}>lorem is there!!!</p>
+//     </>
+//   )
+// };
+
+// /* Movie event listener */
+
+// const Move = () => {
+
+//   const moveHandler = () => {
+//     //alert("Move!!");
+//     console.log("Move!!");
+//   };
+
+//   return (
+//     <>
+//       <p onMouseMove={moveHandler}> Yupindra Kumar Balaji </p>
+//     </>
+//   )
+
+// };
+
+
+// function App() {
+//   return (
+//     <>
+//       <Button />
+//       <Copy />
+//       <Move />
+//     </>
+//   )
+// }
+
+// export default App;
+
+// -------------------------state-----------------------------------
+/*
+State is a built-in React object that allows us to
+track and update the component's state. A component's state
+can change over time, and when it changes, the component re-renders.
+
+*/
+//-------------------------React Hooks-----------------------------------
+
+/* React hooks are a new addition in React 16.8.
+They let you use state and other React features without writing a class.
+*/
+
+/* useState() -
+The react useState hook allows us to track state in a 
+function component. State generally refers to data or properties
+that need to be tracking in an application.
+*/
+
+import { useState } from "react";
+
+const Counter = () => {
+
+  const [count, setCount] = useState(0);
+
+  const  increment = () => {
+    setCount(count + 1);
+  }
+
+  const decrement = () => {
+    setCount(count - 1);
+  }
+
+  return (
     <>
-     <BsFillCartCheckFill />
-     <FaGithub />
+      <h1>{count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </>
+  )
+}
+function App() {
+  const [friends, setFriends] = useState(["Yupindra", "Rajesh", "Raju"]);
+
+  const addOne = () => {
+    setFriends([...friends, "Raji"]);
+  }
+
+  const removeOne = () => {
+    setFriends(friends.filter((f) => f !== "Raju"));
+  }
+
+  const updateOne = () => {
+    setFriends(friends.map((f) => f === "Yupindra" ? "Yupindra Kumar" : f));
+  }
+
+  const [movie, setMovie] = useState({
+    title: "The Matrix",
+    director: "Wachowski"
+  });
+
+  const handleClick = () => {
+
+    const copyMovie = {
+      ...movie,
+      director: "Yupindra",
+    };
+
+    setMovie(copyMovie);
+  }
+
+  const [movies, setMovies] = useState([
+    {
+      title: "The Matrix",
+      director: "Wachowski"
+    },
+    {
+      title: "The Matrix Reloaded",
+      director: "Wachowski"
+    },
+    {
+      title: "The Matrix Revolutions",
+      director: "Wachowski"
+    }
+  ]);
+
+  const handleClicks = () => {
+    setMovies(movies.map((m) => m.title === "The Matrix" ? {...m, director: "Yupindra"} : m));
+  }
+  return (
+    <>
+    {/* <Counter /> */}
+    <h1>Friends</h1>
+      {friends.map((f) => (
+        <li key={Math.random()}>{f}</li>
+      ))}
+
+      <button onClick={addOne}>AddOne</button>
+      <button onClick={removeOne}>RemoveOne</button>
+      <button onClick={updateOne}>updateOne</button>
+
+      <h1>{movie.title}</h1>
+      <p>Ratings: {movie.director}</p>
+      <button onClick={handleClick}>Change Director</button>
+      
+      <h1>Movies</h1>
+      {movies.map((m) => (
+        <li key={Math.random()}>{m.title}
+          <ul>{m.director}</ul>
+        </li>
+      ))}
+
+      <button onClick={handleClicks}> Change Director </button>
     </>
   );
-};
+}
 
 export default App;
+
