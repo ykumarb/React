@@ -461,103 +461,132 @@ function component. State generally refers to data or properties
 that need to be tracking in an application.
 */
 
+// import { useState } from "react";
+
+// const Counter = () => {
+
+//   const [count, setCount] = useState(0);
+
+//   const  increment = () => {
+//     setCount(count + 1);
+//   }
+
+//   const decrement = () => {
+//     setCount(count - 1);
+//   }
+
+//   return (
+//     <>
+//       <h1>{count}</h1>
+//       <button onClick={increment}>+</button>
+//       <button onClick={decrement}>-</button>
+//     </>
+//   )
+// }
+// function App() {
+//   const [friends, setFriends] = useState(["Yupindra", "Rajesh", "Raju"]);
+
+//   const addOne = () => {
+//     setFriends([...friends, "Raji"]);
+//   }
+
+//   const removeOne = () => {
+//     setFriends(friends.filter((f) => f !== "Raju"));
+//   }
+
+//   const updateOne = () => {
+//     setFriends(friends.map((f) => f === "Yupindra" ? "Yupindra Kumar" : f));
+//   }
+
+//   const [movie, setMovie] = useState({
+//     title: "The Matrix",
+//     director: "Wachowski"
+//   });
+
+//   const handleClick = () => {
+
+//     const copyMovie = {
+//       ...movie,
+//       director: "Yupindra",
+//     };
+
+//     setMovie(copyMovie);
+//   }
+
+//   const [movies, setMovies] = useState([
+//     {
+//       title: "The Matrix",
+//       director: "Wachowski"
+//     },
+//     {
+//       title: "The Matrix Reloaded",
+//       director: "Wachowski"
+//     },
+//     {
+//       title: "The Matrix Revolutions",
+//       director: "Wachowski"
+//     }
+//   ]);
+
+//   const handleClicks = () => {
+//     setMovies(movies.map((m) => m.title === "The Matrix" ? {...m, director: "Yupindra"} : m));
+//   }
+//   return (
+//     <>
+//     {/* <Counter /> */}
+//     <h1>Friends</h1>
+//       {friends.map((f) => (
+//         <li key={Math.random()}>{f}</li>
+//       ))}
+
+//       <button onClick={addOne}>AddOne</button>
+//       <button onClick={removeOne}>RemoveOne</button>
+//       <button onClick={updateOne}>updateOne</button>
+
+//       <h1>{movie.title}</h1>
+//       <p>Ratings: {movie.director}</p>
+//       <button onClick={handleClick}>Change Director</button>
+      
+//       <h1>Movies</h1>
+//       {movies.map((m) => (
+//         <li key={Math.random()}>{m.title}
+//           <ul>{m.director}</ul>
+//         </li>
+//       ))}
+
+//       <button onClick={handleClicks}> Change Director </button>
+//     </>
+//   );
+// }
+
+// export default App;
+
+//-------------------------Forms--------------------------------------
+
 import { useState } from "react";
 
-const Counter = () => {
-
-  const [count, setCount] = useState(0);
-
-  const  increment = () => {
-    setCount(count + 1);
-  }
-
-  const decrement = () => {
-    setCount(count - 1);
-  }
-
-  return (
-    <>
-      <h1>{count}</h1>
-      <button onClick={increment}>+</button>
-      <button onClick={decrement}>-</button>
-    </>
-  )
-}
 function App() {
-  const [friends, setFriends] = useState(["Yupindra", "Rajesh", "Raju"]);
+  const [username, setUsername] = useState("");
 
-  const addOne = () => {
-    setFriends([...friends, "Raji"]);
-  }
+  const handleChange = (e) => {
+    setUsername(e.target.value);
+  };
 
-  const removeOne = () => {
-    setFriends(friends.filter((f) => f !== "Raju"));
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Form Submitted: ${username}`);
+    setUsername("");
+  };
 
-  const updateOne = () => {
-    setFriends(friends.map((f) => f === "Yupindra" ? "Yupindra Kumar" : f));
-  }
-
-  const [movie, setMovie] = useState({
-    title: "The Matrix",
-    director: "Wachowski"
-  });
-
-  const handleClick = () => {
-
-    const copyMovie = {
-      ...movie,
-      director: "Yupindra",
-    };
-
-    setMovie(copyMovie);
-  }
-
-  const [movies, setMovies] = useState([
-    {
-      title: "The Matrix",
-      director: "Wachowski"
-    },
-    {
-      title: "The Matrix Reloaded",
-      director: "Wachowski"
-    },
-    {
-      title: "The Matrix Revolutions",
-      director: "Wachowski"
-    }
-  ]);
-
-  const handleClicks = () => {
-    setMovies(movies.map((m) => m.title === "The Matrix" ? {...m, director: "Yupindra"} : m));
-  }
   return (
     <>
-    {/* <Counter /> */}
-    <h1>Friends</h1>
-      {friends.map((f) => (
-        <li key={Math.random()}>{f}</li>
-      ))}
-
-      <button onClick={addOne}>AddOne</button>
-      <button onClick={removeOne}>RemoveOne</button>
-      <button onClick={updateOne}>updateOne</button>
-
-      <h1>{movie.title}</h1>
-      <p>Ratings: {movie.director}</p>
-      <button onClick={handleClick}>Change Director</button>
-      
-      <h1>Movies</h1>
-      {movies.map((m) => (
-        <li key={Math.random()}>{m.title}
-          <ul>{m.director}</ul>
-        </li>
-      ))}
-
-      <button onClick={handleClicks}> Change Director </button>
+      <h1>Form Demo</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={username} onChange={handleChange} />
+        <button type="submit">Submit</button>
+      </form>
     </>
   );
-}
+};
 
 export default App;
-
