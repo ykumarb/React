@@ -668,30 +668,62 @@ Some examples of side effects are: fetching data, directly updating the DOM, and
 //-------------------------Context API--------------------------------------
 
 // 1. Import the createContext function from the React library.
+// import { createContext } from 'react';
+// import Greetings from './components/Greetings';
+
+// // 2. Create a new context object using the createContext function.
+// export const Data = createContext();
+// export const Data1 = createContext();
+
+// function App() {
+//   const name = "Yupindra Kumar Balaji";
+//   const age = 25;
+
+//   // 3. Wrap our component into provider component
+  
+//   return (
+//     <>
+//     <h1>Context API</h1>
+//     <Data.Provider value={name}>
+//       <Data1.Provider value={age}>
+//         < Greetings />
+//       </Data1.Provider>
+//     </Data.Provider>
+
+//       {/* <Greetings name={name} /> */}
+//     </>
+//   )
+// }
+// export default App;
+
+//-------------------------useContext Hook--------------------------------------
+/*
+React context is a way to manage state globally.
+It can be used together with the useState hook to share state between deeply nested
+components more easily than with useState alone.
+*/
+
 import { createContext } from 'react';
 import Greetings from './components/Greetings';
 
-// 2. Create a new context object using the createContext function.
 export const Data = createContext();
 export const Data1 = createContext();
 
 function App() {
+
   const name = "Yupindra Kumar Balaji";
   const age = 25;
 
-  // 3. Wrap our component into provider component
-  
   return (
     <>
-    <h1>Context API</h1>
-    <Data.Provider value={name}>
-      <Data1.Provider value={age}>
-        < Greetings />
-      </Data1.Provider>
-    </Data.Provider>
-
-      {/* <Greetings name={name} /> */}
+      <h1>useContext Hook</h1>
+      <Data.Provider value={name}>
+        <Data1.Provider value={age}>
+          < Greetings />
+        </Data1.Provider>
+      </Data.Provider>
     </>
-  )
-}
+  );
+};
+
 export default App;
