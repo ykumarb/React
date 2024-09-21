@@ -563,30 +563,82 @@ that need to be tracking in an application.
 
 //-------------------------Forms--------------------------------------
 
-import { useState } from "react";
+// import { useState } from "react";
+
+// function App() {
+//   const [username, setUsername] = useState("");
+
+//   const handleChange = (e) => {
+//     setUsername(e.target.value);
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     alert(`Form Submitted: ${username}`);
+//     setUsername("");
+//   };
+
+//   return (
+//     <>
+//       <h1>Form Demo</h1>
+//       <form onSubmit={handleSubmit}>
+//         <input type="text" value={username} onChange={handleChange} />
+//         <button type="submit">Submit</button>
+//       </form>
+//     </>
+//   );
+// };
+
+// export default App;
+
+//-------------------------useEffect Hook--------------------------------------
+/* useEffect is a React Hook that allows you to perform side effects in your components.
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+*/
+
+import { useEffect, useState } from "react";
 
 function App() {
-  const [username, setUsername] = useState("");
 
-  const handleChange = (e) => {
-    setUsername(e.target.value);
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Form Submitted: ${username}`);
-    setUsername("");
-  };
+  /* 1. When the component mounts, the useEffect hook will be called (first time)
+    2. Anytime we do (side effect)
+    3. useEffect can't be put inside condiitonal statements.
+    4. dependency list - [] initial render, [value] - whenever value changes.
+  */
+  // useEffect(() => {
+  //   console.log("useEffect");
+  //   document.title = `You clicked ${value} times`;
+  // }, [value]);
 
-  return (
+  // const [value, setValue] = useState(0);
+
+  const [data, setData] = useState([]);
+
+  /* Here fetch data is a side effect in react js */
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const data = await response.json();
+      if (data && data.length) setData(data);
+    }
+
+    getData();
+  }, []);
+
+  return(
     <>
-      <h1>Form Demo</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={username} onChange={handleChange} />
-        <button type="submit">Submit</button>
-      </form>
+      <h1>JSON DATA!</h1>
+      {/* <h1>{value}</h1>
+      <button onClick={() => setValue(value + 1)}>Click Me</button> */}
+      <ul>
+        {data.map(item => (
+          <li key={Math.random()}>{item.title}</li>
+        ))}
+      </ul>
     </>
   );
 };
 
-export default App;
+
+export default App
