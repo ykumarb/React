@@ -650,17 +650,48 @@ Some examples of side effects are: fetching data, directly updating the DOM, and
    Prop Drilling is not a good way to pass the data from parent to child component.
 */
 
-import Greetings from './components/Greetings'; 
+// import Greetings from './components/Greetings'; 
+
+// function App() {
+//   const name = "Yupindra Kumar Balaji"
+
+//   return (
+//     <>
+//       <h1>Prop Drilling</h1>
+//       <Greetings name={name} />  
+//     </>
+//   );
+// }
+
+// export default App;
+
+//-------------------------Context API--------------------------------------
+
+// 1. Import the createContext function from the React library.
+import { createContext } from 'react';
+import Greetings from './components/Greetings';
+
+// 2. Create a new context object using the createContext function.
+export const Data = createContext();
+export const Data1 = createContext();
 
 function App() {
-  const name = "Yupindra Kumar Balaji"
+  const name = "Yupindra Kumar Balaji";
+  const age = 25;
 
+  // 3. Wrap our component into provider component
+  
   return (
     <>
-      <h1>Prop Drilling</h1>
-      <Greetings name={name} />  
-    </>
-  );
-}
+    <h1>Context API</h1>
+    <Data.Provider value={name}>
+      <Data1.Provider value={age}>
+        < Greetings />
+      </Data1.Provider>
+    </Data.Provider>
 
+      {/* <Greetings name={name} /> */}
+    </>
+  )
+}
 export default App;
