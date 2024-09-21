@@ -736,43 +736,70 @@ components more easily than with useState alone.
   It allows us to manage state in a functional, immutable way.  
 */
 
-import { useReducer } from 'react';
-function App() {
+// import { useReducer } from 'react';
+// function App() {
 
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return (
+//   const [state, dispatch] = useReducer(reducer, initialState);
+//   return (
+//     <>
+//       <h1>{state.count}</h1>
+//       <button onClick={() => dispatch({type: "increment"})}>+</button>
+//       <button onClick={() => dispatch({type: "decrement"})}>-</button>
+//       <button onClick={() => dispatch({type: "reset"})}>Reset</button>
+//     </>
+//   )
+// };
+
+// const initialState = {count: 0};
+
+// const reducer = (state, action) => {
+//   switch(action.type) {
+//     case "increment":
+//       return {
+//         ...state,
+//         count: state.count + 1,
+//       };
+
+//     case "decrement":
+//     return {
+//         ...state,
+//         count: state.count - 1,
+//       };
+
+//     case "reset":
+//       return {
+//         ...state,
+//         count: 0,
+//       };
+//     default:
+//       return state;
+//   }
+// }
+// export default App;
+
+
+//-------------------------useRef Hook--------------------------------------
+/*
+useRef is a hook that allows us to access the 
+properties of a DOM element It is useful when 
+you need to access the value of an element or the
+current dimensions of an element.
+*/
+import { useRef } from 'react';
+function App() {
+  const inputElement = useRef(null);
+
+  const focusInput = () => {
+    inputElement.current.focus();
+    inputElement.current.value = "Yupin";
+  }
+  return(
     <>
-      <h1>{state.count}</h1>
-      <button onClick={() => dispatch({type: "increment"})}>+</button>
-      <button onClick={() => dispatch({type: "decrement"})}>-</button>
-      <button onClick={() => dispatch({type: "reset"})}>Reset</button>
+      <h1>useRef Hook</h1>
+      <input type="text" ref={inputElement} />
+      <button onClick={() => focusInput()}>Focus & write Yupin</button>
     </>
   )
-};
-
-const initialState = {count: 0};
-
-const reducer = (state, action) => {
-  switch(action.type) {
-    case "increment":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-
-    case "decrement":
-    return {
-        ...state,
-        count: state.count - 1,
-      };
-
-    case "reset":
-      return {
-        ...state,
-        count: 0,
-      };
-    default:
-      return state;
-  }
 }
+
 export default App;
