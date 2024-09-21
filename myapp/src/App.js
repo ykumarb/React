@@ -596,49 +596,71 @@ that need to be tracking in an application.
 Some examples of side effects are: fetching data, directly updating the DOM, and timers.
 */
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+
+// function App() {
+
+
+//   /* 1. When the component mounts, the useEffect hook will be called (first time)
+//     2. Anytime we do (side effect)
+//     3. useEffect can't be put inside condiitonal statements.
+//     4. dependency list - [] initial render, [value] - whenever value changes.
+//   */
+//   // useEffect(() => {
+//   //   console.log("useEffect");
+//   //   document.title = `You clicked ${value} times`;
+//   // }, [value]);
+
+//   // const [value, setValue] = useState(0);
+
+//   const [data, setData] = useState([]);
+
+//   /* Here fetch data is a side effect in react js */
+//   useEffect(() => {
+//     async function getData() {
+//       const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+//       const data = await response.json();
+//       if (data && data.length) setData(data);
+//     }
+
+//     getData();
+//   }, []);
+
+//   return(
+//     <>
+//       <h1>JSON DATA!</h1>
+//       {/* <h1>{value}</h1>
+//       <button onClick={() => setValue(value + 1)}>Click Me</button> */}
+//       <ul>
+//         {data.map(item => (
+//           <li key={Math.random()}>{item.title}</li>
+//         ))}
+//       </ul>
+//     </>
+//   );
+// };
+
+
+// export default App
+
+
+//-------------------------Prop Drilling--------------------------------------
+
+/* Way to pass the data from parent to child component is called Prop Drilling.
+   Prop Drilling is not a good way to pass the data from parent to child component.
+*/
+
+import Greetings from './components/Greetings'; 
 
 function App() {
+  const name = "Yupindra Kumar Balaji"
 
-
-  /* 1. When the component mounts, the useEffect hook will be called (first time)
-    2. Anytime we do (side effect)
-    3. useEffect can't be put inside condiitonal statements.
-    4. dependency list - [] initial render, [value] - whenever value changes.
-  */
-  // useEffect(() => {
-  //   console.log("useEffect");
-  //   document.title = `You clicked ${value} times`;
-  // }, [value]);
-
-  // const [value, setValue] = useState(0);
-
-  const [data, setData] = useState([]);
-
-  /* Here fetch data is a side effect in react js */
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
-      const data = await response.json();
-      if (data && data.length) setData(data);
-    }
-
-    getData();
-  }, []);
-
-  return(
+  return (
     <>
-      <h1>JSON DATA!</h1>
-      {/* <h1>{value}</h1>
-      <button onClick={() => setValue(value + 1)}>Click Me</button> */}
-      <ul>
-        {data.map(item => (
-          <li key={Math.random()}>{item.title}</li>
-        ))}
-      </ul>
+      <h1>Prop Drilling</h1>
+      <Greetings name={name} />  
     </>
   );
-};
+}
 
-
-export default App
+export default App;

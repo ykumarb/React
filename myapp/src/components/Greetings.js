@@ -1,6 +1,9 @@
-const Greetings = () => {
+import Add from './Add';
+const Greetings = ({name}) => {
+  console.log(`Greetings ${name}`);
   return (
-    <div>Greetings Component</div>
+    <Add name={name} />
+    // <div>Greetings Component</div>
   )
 }
 
